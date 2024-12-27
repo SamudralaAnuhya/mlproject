@@ -1,8 +1,7 @@
 import sys
-import logging
+from src.logger import logging
 
 def error_message_detail(error, error_details: sys):
-    # Changed from error_details.exc_info() to sys.exc_info()
     _, _, exc_tb = sys.exc_info()  # Use sys.exc_info() directly
     file_name = exc_tb.tb_frame.f_code.co_filename
     error_message = (
@@ -12,11 +11,18 @@ def error_message_detail(error, error_details: sys):
     return error_message
 
 class CustomException(Exception):
-    def __init__(self, error_message, error_details: sys):
+    def __init__(self, error_message, error_detail: sys):
         super().__init__(error_message)
-        # Pass sys module, not sys.exc_info()
-        self.error_message = error_message_detail(error_message, error_details)
+        self.error_message = error_message_detail(error_message, error_detail)
         
     def __str__(self):
         return self.error_message
 
+
+
+if __name__ == "__main__":
+    try:
+        a = 1/0
+    except Exception as e:
+        logging.info(f"Error occurred")
+        raise CustomException(e, sys.exc_info())

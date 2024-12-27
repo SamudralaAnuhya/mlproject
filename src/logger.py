@@ -1,4 +1,4 @@
-'''any excution happens it should colelct the logs and store it in the file'''
+# '''any excution happens it should colelct the logs and store it in the file'''
 
 import logging
 import os
@@ -11,6 +11,6 @@ os.makedirs(logs_path, exist_ok=True)  # create logs directory if not exists
 LOG_FILE_PATH = os.path.join(logs_path, LOG_FILE)  # path to store logs
 logging.basicConfig(filename=LOG_FILE_PATH, 
                     format  = "[ %(asctime)s ]  %(lineno)d  %(filename)s  -  %(levelname)s -  %(message)s ", 
-                    level=logging.INFO
+                    level=logging.INFO,
                     )  # logging configuration
 
