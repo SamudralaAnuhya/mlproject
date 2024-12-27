@@ -1,0 +1,1 @@
+''' model trainer is a class that trains a model on a dataset and saves the model to a file '''
