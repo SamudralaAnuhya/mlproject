@@ -12,11 +12,11 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder,StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer   #handle missing values 
-sys.path.append(os.path.abspath('/Users/anuhyasamudrala/Documents/Anu_uncc/mlproject/src'))
-from exception import CustomException
+# sys.path.append(os.path.abspath('/Users/anuhyasamudrala/Documents/Anu_uncc/mlproject/src'))
+from src.exception import CustomException
 import logging
 
-from utils import save_object
+from src.utils import save_object
 
 @dataclass
 class DataTransformationConfig:
@@ -94,4 +94,4 @@ class DataTransformation:
             )
   
         except Exception as e:
-            raise CustomException('Data Ingestion Failed',e)
+            raise CustomException(e,sys)

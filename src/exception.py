@@ -1,7 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.abspath('/Users/anuhyasamudrala/Documents/Anu_uncc/mlproject/src'))
-from logger import logging
+from src.logger import logging
 
 def error_message_detail(error, error_details: sys):
     _, _, exc_tb = sys.exc_info()  # Use sys.exc_info() directly
