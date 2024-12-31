@@ -11,7 +11,7 @@ class PredictPipeline:
         try:
             model_path= 'artifacts/trained_model.pkl'
             preprocessor_path= 'artifacts/preprocessor.pkl'
-            print("Before Loading")
+            print("Before Loading started")
             model=load_object(file_path=model_path)
             preprocessor=load_object(file_path=preprocessor_path)
             print("After Loading")
